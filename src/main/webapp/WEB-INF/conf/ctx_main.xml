@@ -8,15 +8,10 @@
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
     http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
-
-    <context:property-placeholder location="classpath:config/spring/init.properties" />
+	 <!-- 
+	<context:property-placeholder location="classpath:META-INF/ca/server/core/spring/init.properties,WEB-INF/conf/init.properties" />
+	-->
 	
-	
-	<import resource="ctx_datasource.xml" />
-	<import resource="ctx_dao.xml" />
-	<import resource="ctx_tx.xml" />
-	<import resource="activeMq.xml" />
-	
-
+	<import resource="classpath:config/spring/activeMq.xml" />
 
 </beans>

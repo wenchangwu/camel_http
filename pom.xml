@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>lakala</groupId>
 	<artifactId>test</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>test Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -84,6 +84,11 @@
 			<artifactId>spring-web</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
 
 		<!-- jpa config -->
 		<dependency>
@@ -127,9 +132,64 @@
 			<version>0.9.1.2</version>
 		</dependency>
 
+		<!-- apache mq -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-broker</artifactId>
+			<version>5.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- dozer -->
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>5.3.1</version>
+		</dependency>
 
 	</dependencies>
 	<build>
 		<finalName>test</finalName>
+		<plugins>
+			<plugin>
+				<!-- 编译插件 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- 安装插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.3.1</version>
+			</plugin>
+			<!-- 单元测试插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.7.2</version>
+			</plugin>
+			<!-- 源码插件 <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId> 
+				<version>2.1</version> <configuration> <attach>true</attach> </configuration> 
+				<executions> <execution> <id>attach-sources</id> <goals> <goal>jar</goal> 
+				</goals> </execution> </executions> </plugin> -->
+		</plugins>
 	</build>
 </project>

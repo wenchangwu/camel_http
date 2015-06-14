@@ -6,6 +6,9 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>jpa.domain.User</class>
+		<class>jpa.domain.realname.RealNameAuthPassStatus</class>
+		<class>jpa.domain.realname.RealNameAuthRejectStatus</class>
+		<class>jpa.domain.realname.RealNameAuthStatus</class>
 		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>

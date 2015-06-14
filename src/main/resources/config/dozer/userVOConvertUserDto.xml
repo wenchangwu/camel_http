@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>dozer.vo.User</class-a>
+		<class-b>dozer.dto.UserDto</class-b>
+		<field>
+			<a>userName</a>
+			<b>name</b>
+		</field>
+		<field>
+			<a>info.date</a>
+			<b>info.createDate</b>
+		</field>
+		<field>
+			<a>info.gender</a>
+			<b>info.gender</b>
+		</field>
+	</mapping>
+
+</mappings>
+

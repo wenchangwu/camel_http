@@ -17,6 +17,12 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public void saveUser(User user) {
 		this.userDao.saveUser(user);
+		user.setUserName("wenchang");
+	}
+
+	@Override
+	public User getUserById(int id) {
+		return userDao.getUserById(id);
 	}
 
 }

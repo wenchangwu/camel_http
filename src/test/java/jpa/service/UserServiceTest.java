@@ -25,4 +25,13 @@ public class UserServiceTest {
 		u.setUserName("吴繁");
 		userService.saveUser(u);
 	}
+	
+	@Test
+	public void testGetUser(){
+		User u1=userService.getUserById(1);
+		User u2=userService.getUserById(2);
+		
+		System.out.println(u1.getRealNameAuthStatus().getStatus());
+		System.out.println(u2.getRealNameAuthStatus().getStatus());	
+	}
 }

@@ -1,7 +1,54 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>TEST</display-name>
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/conf/ctx_main.xml
+		</param-value>
+	</context-param>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>ca.root</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>3000</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.util.WebAppRootListener
+		</listener-class>
+	</listener>
+	
+
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	
+	
+
+	<session-config>
+		<!-- Default to 5 minute session timeouts -->
+		<session-timeout>5</session-timeout>
+	</session-config>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/page-not-found.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/jsp/server-error.jsp</location>
+	</error-page>
+
+	
 </web-app>

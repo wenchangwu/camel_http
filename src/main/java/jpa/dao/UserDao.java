@@ -1,5 +1,8 @@
 package jpa.dao;
 
+import jpa.domain.Address;
+import jpa.domain.Employee;
+import jpa.domain.Husband;
 import jpa.domain.User;
 
 public interface UserDao {
@@ -8,4 +11,14 @@ public interface UserDao {
 	public abstract void saveUser(User user);
 
 	public abstract User getUserById(int id);
+
+	public abstract void saveEmployee(Employee employee);
+
+	public abstract Address saveAddress(Address address);
+
+	public abstract void saveHusband(Husband husband);
+
+	public abstract Husband getHusband(int id);
+
+	public abstract void deleteHusband(int id);
 }

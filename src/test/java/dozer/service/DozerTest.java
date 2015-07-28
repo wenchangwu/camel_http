@@ -41,16 +41,6 @@ public class DozerTest {
 		System.out.println(user2);
 	}
 	
-	@Test
-	public void test(){
-	}
 	
-	
-	private String test2() throws Exception{
-		 String s="222";
-		 
-		throw new Exception();
-		 
-	}
 
 }

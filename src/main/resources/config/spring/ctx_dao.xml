@@ -32,10 +32,7 @@
 		</property>
 	</bean>
 	
-	<bean id="jpaTemplate" class="org.springframework.orm.jpa.JpaTemplate">
-		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
-	</bean>
-	<context:component-scan base-package="jpa.*" />
-   
+	<!-- <context:component-scan base-package="jpa.*" /> -->
+    <context:component-scan base-package="shiro.*" />
 
 </beans>

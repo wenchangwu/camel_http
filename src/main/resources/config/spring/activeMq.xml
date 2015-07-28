@@ -29,7 +29,7 @@
 	
 	<!-- 定义Topic监听器 -->
 	<jms:listener-container destination-type="topic" container-type="default" connection-factory="connectionFactory" acknowledge="auto">
-		<jms:listener destination="topic11" ref="topicReceiver"/>
+		<jms:listener destination="1521" ref="topicReceiver"/>
 	</jms:listener-container>
 	
 	<!-- ====Consumer side end==== -->

@@ -14,7 +14,6 @@
 		<property name="dataSource" ref="ca.dataSource" />
 	</bean>
 
-
 	<tx:annotation-driven/>
 
 </beans>

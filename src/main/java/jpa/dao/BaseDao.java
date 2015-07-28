@@ -1,23 +1,11 @@
 package jpa.dao;
 
-import javax.annotation.Resource;
+public interface BaseDao<PK> {
 
-import org.springframework.orm.jpa.JpaTemplate;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class BaseDao {
-
-	@Resource
-	public JpaTemplate jpaTemplate;
-
-	public JpaTemplate getJpaTemplate() {
-		return jpaTemplate;
-	}
-
-	public void setJpaTemplate(JpaTemplate jpaTemplate) {
-		this.jpaTemplate = jpaTemplate;
-	}
-	
-	
+	   public void save(PK pk);
+	   
+	   public PK fetchObjectById(int id);
+	   
+	   public void update(PK pk);
+		
 }

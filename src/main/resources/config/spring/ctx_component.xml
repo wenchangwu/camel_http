@@ -7,12 +7,12 @@
 	
 	
 	
-	<bean id="objectMapper" name="servercoremap" class="com.lakala.core.objmapper.dozer.ObjectMapperDozerImpl"
+	<bean id="objectMapper" name="servercoremap" class="dozer.service.MyDozerMapperImpl"
 		scope="singleton">
 		<property name="mapper">
 			<bean class="org.dozer.spring.DozerBeanMapperFactoryBean" scope="singleton">
 				<property name="mappingFiles"
-					value="classpath:META-INF/ca/server/core/dtomap/*.xml" />
+					value="classpath:config/dozer/*.xml" />
 			</bean>
 		</property>
 	</bean>

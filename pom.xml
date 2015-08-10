@@ -215,10 +215,10 @@
 			<version>${org.apache.shiro.version}</version>
 		</dependency>
 		<dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-            <version>${org.apache.shiro.version}</version>
-        </dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${org.apache.shiro.version}</version>
+		</dependency>
 
 	</dependencies>
 	<build>

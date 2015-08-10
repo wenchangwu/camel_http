@@ -1,0 +1,4 @@
+<ehcache>
+	<cache name="spittleCache" timeToLiveSeconds="100">
+	</cache>
+</ehcache>

@@ -1,12 +1,13 @@
-package jpa.service;
+package jpa.dao;
 
 import jpa.domain.Employee;
 import jpa.domain.License;
 
 
-public interface UserService {
+public interface TestDao {
 
 	public void save(License license);
 	
-	public void save(Employee employee);
+	public void save(Employee e);
+
 }

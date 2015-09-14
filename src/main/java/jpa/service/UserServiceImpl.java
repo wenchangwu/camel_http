@@ -2,62 +2,28 @@ package jpa.service;
 
 import javax.annotation.Resource;
 
+import jpa.dao.TestDao;
+import jpa.domain.Employee;
+import jpa.domain.License;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import jpa.dao.UserDao;
-import jpa.domain.Address;
-import jpa.domain.Employee;
-import jpa.domain.Husband;
-import jpa.domain.User;
-
-@Service(value="userService")
+@Service(value = "userService")
 public class UserServiceImpl implements UserService {
-	
+
 	@Resource
-	private UserDao userDao;
+	private TestDao testDao;
 
-	@Transactional
-	public void saveUser(User user) {
-		this.userDao.saveUser(user);
-		user.setUserName("wenchang");
+	@Override
+	@Transactional()
+	public void save(License license) {
+		testDao.save(license);
 	}
 
 	@Override
-	public User getUserById(int id) {
-		return userDao.getUserById(id);
-	}
-
-	@Override
-	@Transactional
-	public void saveEmployee(Employee employee) {
-		userDao.saveEmployee(employee);
-		
-	}
-
-	@Override
-	@Transactional
-	public Address saveAddress(Address address) {
-		return userDao.saveAddress(address);
-	}
-
-	@Override
-	@Transactional
-	public void saveHusband(Husband husband) {
-		userDao.saveHusband(husband);
-		
-	}
-
-	@Override
-	@Transactional
-	public Husband getHusband(int id) {
-		return userDao.getHusband(id);
-	}
-
-	@Override
-	@Transactional
-	public void deleteHusband(int id) {
-		userDao.deleteHusband(id);
+	public void save(Employee employee) {
+		testDao.save(employee);
 	}
 
 }

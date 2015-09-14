@@ -5,9 +5,11 @@
 	<persistence-unit name="myJpa">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
-		<class>shiro.model.User</class>
-		<class>shiro.model.Role</class>
-		<class>shiro.model.Permission</class>
+		<class>jpa.domain.License</class>
+		<class>jpa.domain.DriverLicense</class>
+		<class>jpa.domain.ICDLComputerLicense</class>
+		<class>jpa.domain.Employee</class>
+		<class>jpa.domain.AuthInfo</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 	</persistence-unit>

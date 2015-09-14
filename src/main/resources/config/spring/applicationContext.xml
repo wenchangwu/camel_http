@@ -11,12 +11,14 @@
 
     <context:property-placeholder location="classpath:config/spring/init.properties" />
 	
+	<context:component-scan base-package="rpc**" />
 	
-	<import resource="ctx_datasource.xml" />
+	<!-- <import resource="ctx_datasource.xml" />
 	<import resource="ctx_dao.xml" />
 	<import resource="ctx_tx.xml" />
-	<import resource="spring_shiro.xml"/>
-	<!-- <import resource="activeMq.xml" /> -->
+	<import resource="activeMq.xml" /> -->
+	
+	 <import resource="ctx_camel.xml"/>
 	
 
 

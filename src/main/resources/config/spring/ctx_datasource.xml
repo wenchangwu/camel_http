@@ -6,8 +6,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.springframework.org/schema/jee
 http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
 
-	<bean id="ca.dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close">
+	<bean id="ca.dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${ca.datasource.jdbc.driverClassName}" />
 		<property name="jdbcUrl" value="${ca.datasource.jdbc.url}" />
 		<property name="user" value="${ca.datasource.jdbc.username}" />

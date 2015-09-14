@@ -12,6 +12,12 @@ import org.springframework.core.io.ClassPathResource;
 import cache.repository.SpittleDao;
 import cache.repository.SpittleDaoImpl;
 
+/**
+ * 
+ * @author wenchang.wu
+ * @since 2015年8月10日
+ *
+ */
 @Configuration
 @EnableCaching
 public class CachingConfig {

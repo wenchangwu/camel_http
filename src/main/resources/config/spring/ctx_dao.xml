@@ -32,7 +32,12 @@
 		</property>
 	</bean>
 	
-	<!-- <context:component-scan base-package="jpa.*" /> -->
-    <context:component-scan base-package="shiro.*" />
-
+	
+	<bean id = "transactionManager" class = "org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <property name = "dataSource" ref = "ca.dataSource"></property>  
+    </bean>  
+	
+	<context:component-scan base-package="jpa.*" />
+   <!--  <context:component-scan base-package="shiro.*" />
+ -->
 </beans>

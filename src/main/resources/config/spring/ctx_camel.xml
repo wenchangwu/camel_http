@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
+	xsi:schemaLocation="
+             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+             http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<bean id="fileConverter" class="camel.FileConvertProcessor" />
+	<bean id="helloBean" class="camel.bean.HelloBean"></bean>
+
+
+	<camelContext id="core.camel" trace="false"
+		xmlns="http://camel.apache.org/schema/spring">
+
+		<errorHandler id="defaultErrorHandler" type="DefaultErrorHandler">
+			<redeliveryPolicy maximumRedeliveries="5"
+				retryAttemptedLogLevel="WARN" backOffMultiplier="2"
+				useExponentialBackOff="true" redeliveryDelay="1000"
+		</errorHandler>
+		<!-- <route> <from uri="quartz2://report?cron=0/5 * * * * ?"></from> <to 
+			uri="http://localhost:8080"></to> <process ref="fileConverter"></process> 
+			<to uri="file:d:/temp/outbox"></to> </route> -->
+
+		<!-- <route> <from uri="quartz2://report?cron=0/5 * * * * ?"></from> <to 
+			uri="http://localhost:8080"></to> <process ref="fileConverter"></process> 
+			<to uri="activemq:queue:foo"></to> </route> -->
+
+		<route>
+			<from uri="quartz2://report?cron=0/5 * * * * ?"></from>
+			<to uri="http://localhost:8080"></to>
+			<bean ref="helloBean" method="hello"></bean>
+			<bean ref="helloBean" method="validate"></bean>
+			<to uri="log:reply"></to>
+		</route>
+	</camelContext>
+
+</beans>

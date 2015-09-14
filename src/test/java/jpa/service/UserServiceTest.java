@@ -1,12 +1,16 @@
 package jpa.service;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
-import jpa.domain.Address;
-import jpa.domain.FTEmployee;
-import jpa.domain.Husband;
-import jpa.domain.User;
-import jpa.domain.Wife;
+import jpa.domain.AuthInfo;
+import jpa.domain.AuthType;
+import jpa.domain.DriverLicense;
+import jpa.domain.Employee;
+import jpa.domain.ICDLComputerLicense;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,45 +26,41 @@ public class UserServiceTest {
 	private UserService userService;
 
 	@Test
-	public void testUserSave(){
-		User u=new User();
-		u.setUserName("吴繁");
-		userService.saveUser(u);
+	public void testLicenseSave(){
+		DriverLicense dl=new DriverLicense();
+		dl.setDriverLicenseName("driverLicneseName01");
+		dl.setDriverLicenseIssueDate(new Date());
+		dl.setDriverLicenseExpiryDate(new Date());
+		Employee e=new Employee();
+		e.setEmployeeName("employee1");
+		dl.setEmployee(e);
+		userService.save(dl);
 	}
 	
 	@Test
-	public void testGetUser(){
-		User u1=userService.getUserById(1);
-		User u2=userService.getUserById(2);
+	public void testICDLLicenseSave(){
+		ICDLComputerLicense dl=new ICDLComputerLicense();
+		dl.setIcdlLicenseDegree("degree01");
+		Employee e=new Employee();
+		e.setEmployeeName("employee2");
+		dl.setEmployee(e);
 		
-		System.out.println(u1.getRealNameAuthStatus().getStatus());
-		System.out.println(u2.getRealNameAuthStatus().getStatus());	
+		AuthInfo a=new AuthInfo();
+		a.setAuthType(AuthType.EMAIL);
+		a.setAuthValue("email");
+		
+		AuthInfo a1=new AuthInfo();
+		a1.setAuthType(AuthType.MOBILE);
+		a1.setAuthValue("18817239226");
+		
+		Map map=new HashMap();
+		map.put(AuthType.MOBILE, a1);
+		map.put(AuthType.EMAIL, a);
+		
+		a.setEmployee(e);
+		a1.setEmployee(e);
+		e.setAuthInfos(map);
+		userService.save(dl);
 	}
 	
-	@Test
-	public void testEmployee(){
-		FTEmployee emp=new FTEmployee();
-		Address address=new Address();
-		address.setAddress("安徽省安庆市");
-		Address a=userService.saveAddress(address);
-		emp.setAddress(a);
-		emp.setSalary(1500);
-		userService.saveEmployee(emp);
-	}
-	
-	@Test
-	public void testHusWife(){
-		Husband hus=new Husband();
-		hus.setName("吴文昌");
-		Wife w=new Wife();
-		w.setName("吴繁");
-		w.setHusband(hus);
-		hus.setWife(w);
-		userService.saveHusband(hus);
-	}
-	
-	@Test
-	public void testDelHus(){
-		userService.deleteHusband(8);
-	}
 }
